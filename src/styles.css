@@ -1,0 +1,50 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-horizon-bg: #080808;
+  --color-horizon-secondary: #111111;
+  --color-horizon-card: #171717;
+  --color-horizon-border: #262626;
+  --color-horizon-orange: #FF5A00;
+  --color-horizon-fire: #E52B00;
+  --color-horizon-gold: #FFD000;
+  --color-horizon-text-gray: #A0A0A0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #080808;
+  color: #FFFFFF;
+}
+
+body, #root {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #080808;
+  color: #FFFFFF;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Sleek Dark Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF5A00;
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 90, 0, 0.35);
+  color: #FFD000;
+}
