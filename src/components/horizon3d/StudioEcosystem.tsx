@@ -50,6 +50,94 @@ export interface ModelItem {
   color: string
 }
 
+// Catalog of 3D Models (Community & Library 3D Models)
+export const onlineModels: ModelItem[] = [
+  {
+    id: 'spider-iron',
+    title: 'Superior Spider Man - Iron Spider Armored Suit',
+    author: 'ILNABBOPEDRO',
+    likes: 63,
+    downloads: 48,
+    timeEst: '2h 15m',
+    weight: '52.4g',
+    layers: 240,
+    img: 'https://images.unsplash.com/photo-1635863138275-d9b33299680b?w=600&auto=format&fit=crop&q=80',
+    category: 'Action Figures',
+    tags: ['Multicolor', 'AMS Ready', 'Articulated'],
+    color: '#E52B00'
+  },
+  {
+    id: 'white-lion',
+    title: 'Majestic Roaring White Lion on Granite Rock',
+    author: 'ARTIFACT3D_WORKS',
+    likes: 738,
+    downloads: 690,
+    timeEst: '3h 40m',
+    weight: '84.2g',
+    layers: 310,
+    img: 'https://images.unsplash.com/photo-1614027164847-1b28cfe1df60?w=600&auto=format&fit=crop&q=80',
+    category: 'Sculptures',
+    tags: ['High Detail', 'Organic Supports', 'Marble PLA'],
+    color: '#FFFFFF'
+  },
+  {
+    id: 'black-panther',
+    title: 'Majestic Stealth Panther - Matte Muscle Edition',
+    author: '3dgui',
+    likes: 913,
+    downloads: 1600,
+    timeEst: '2h 50m',
+    weight: '68.0g',
+    layers: 280,
+    img: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&auto=format&fit=crop&q=80',
+    category: 'Sculptures',
+    tags: ['Matte Black', 'Zero Scarring', 'Display Piece'],
+    color: '#1A1A1A'
+  },
+  {
+    id: 'urban-spidey',
+    title: 'Urban Spiderman Figurine - 15cm Streetwear Edition',
+    author: 'Bralento',
+    likes: 138,
+    downloads: 120,
+    timeEst: '1h 55m',
+    weight: '44.8g',
+    layers: 195,
+    img: 'https://images.unsplash.com/photo-1604200213928-ba3cf4fc8436?w=600&auto=format&fit=crop&q=80',
+    category: 'Action Figures',
+    tags: ['Pop Culture', 'No Support Needed', 'Dual Color'],
+    color: '#FF5A00'
+  },
+  {
+    id: 'ghost-spider',
+    title: 'Ghost_Spider_Flexi Articulated Chibi Edition',
+    author: 'HorizonStudioLab',
+    likes: 420,
+    downloads: 380,
+    timeEst: '1h 30m',
+    weight: '36.5g',
+    layers: 160,
+    img: 'https://images.unsplash.com/photo-1563089145-599997674d42?w=600&auto=format&fit=crop&q=80',
+    category: 'Toys',
+    tags: ['Print-in-Place', 'Flexi', 'PLA Basic'],
+    color: '#FFD000'
+  },
+  {
+    id: 'turbine-core',
+    title: 'High-Velocity Jet Impeller & Stator Turbine Core',
+    author: 'AeroDynamics3D',
+    likes: 580,
+    downloads: 410,
+    timeEst: '4h 10m',
+    weight: '98.6g',
+    layers: 340,
+    img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&auto=format&fit=crop&q=80',
+    category: 'Functional',
+    tags: ['PETG-CF', '0.12mm Optimal', 'Mechanical'],
+    color: '#FF5A00'
+  }
+]
+
 export const StudioEcosystem: React.FC = () => {
   // Main Studio Mode: 'library' (Home/Online Models) | 'prepare' (Slicer) | 'device' (Printer Control)
   const [studioTab, setStudioTab] = useState<'library' | 'prepare' | 'device'>('library')
@@ -59,7 +147,7 @@ export const StudioEcosystem: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('All')
   
   // Prepare State
-  const [selectedModel, setSelectedModel] = useState<ModelItem | null>(() => onlineModels[0])
+  const [selectedModel, setSelectedModel] = useState<ModelItem>(onlineModels[0])
   const [sliceProgress, setSliceProgress] = useState<number | null>(null)
   const [isSliced, setIsSliced] = useState(false)
   const [activeProcessTab, setActiveProcessTab] = useState<'Quality' | 'Strength' | 'Speed' | 'Support'>('Quality')
@@ -74,94 +162,6 @@ export const StudioEcosystem: React.FC = () => {
   const [fanSpeed, setFanSpeed] = useState(100)
   const [jogDistance, setJogDistance] = useState<number>(10)
   const [jogFeedback, setJogFeedback] = useState<string | null>(null)
-
-  // Catalog of 3D Models (matching Bambu Studio MakerWorld Online Models & Library)
-  const onlineModels: ModelItem[] = [
-    {
-      id: 'spider-iron',
-      title: 'Superior Spider Man - Iron Spider Armored Suit',
-      author: 'ILNABBOPEDRO',
-      likes: 63,
-      downloads: 48,
-      timeEst: '2h 15m',
-      weight: '52.4g',
-      layers: 240,
-      img: 'https://images.unsplash.com/photo-1635863138275-d9b33299680b?w=600&auto=format&fit=crop&q=80',
-      category: 'Action Figures',
-      tags: ['Multicolor', 'AMS Ready', 'Articulated'],
-      color: '#E52B00'
-    },
-    {
-      id: 'white-lion',
-      title: 'Majestic Roaring White Lion on Granite Rock',
-      author: 'ARTIFACT3D_WORKS',
-      likes: 738,
-      downloads: 690,
-      timeEst: '3h 40m',
-      weight: '84.2g',
-      layers: 310,
-      img: 'https://images.unsplash.com/photo-1614027164847-1b28cfe1df60?w=600&auto=format&fit=crop&q=80',
-      category: 'Sculptures',
-      tags: ['High Detail', 'Organic Supports', 'Marble PLA'],
-      color: '#FFFFFF'
-    },
-    {
-      id: 'black-panther',
-      title: 'Majestic Stealth Panther - Matte Muscle Edition',
-      author: '3dgui',
-      likes: 913,
-      downloads: 1600,
-      timeEst: '2h 50m',
-      weight: '68.0g',
-      layers: 280,
-      img: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&auto=format&fit=crop&q=80',
-      category: 'Sculptures',
-      tags: ['Matte Black', 'Zero Scarring', 'Display Piece'],
-      color: '#1A1A1A'
-    },
-    {
-      id: 'urban-spidey',
-      title: 'Urban Spiderman Figurine - 15cm Streetwear Edition',
-      author: 'Bralento',
-      likes: 138,
-      downloads: 120,
-      timeEst: '1h 55m',
-      weight: '44.8g',
-      layers: 195,
-      img: 'https://images.unsplash.com/photo-1604200213928-ba3cf4fc8436?w=600&auto=format&fit=crop&q=80',
-      category: 'Action Figures',
-      tags: ['Pop Culture', 'No Support Needed', 'Dual Color'],
-      color: '#FF5A00'
-    },
-    {
-      id: 'ghost-spider',
-      title: 'Ghost_Spider_Flexi Articulated Chibi Edition',
-      author: 'HorizonStudioLab',
-      likes: 420,
-      downloads: 380,
-      timeEst: '1h 30m',
-      weight: '36.5g',
-      layers: 160,
-      img: 'https://images.unsplash.com/photo-1563089145-599997674d42?w=600&auto=format&fit=crop&q=80',
-      category: 'Toys',
-      tags: ['Print-in-Place', 'Flexi', 'PLA Basic'],
-      color: '#FFD000'
-    },
-    {
-      id: 'turbine-core',
-      title: 'High-Velocity Jet Impeller & Stator Turbine Core',
-      author: 'AeroDynamics3D',
-      likes: 580,
-      downloads: 410,
-      timeEst: '4h 10m',
-      weight: '98.6g',
-      layers: 340,
-      img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&auto=format&fit=crop&q=80',
-      category: 'Functional',
-      tags: ['PETG-CF', '0.12mm Optimal', 'Mechanical'],
-      color: '#FF5A00'
-    }
-  ]
 
 
   // Filter models based on search and category
